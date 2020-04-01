@@ -3,7 +3,7 @@
 # unique email addresses. The delimiters to support are commas (',')
 # or whitespace (' ').
 
-require
+require 'pry'
 
 class EmailAddressParser
     attr_accessor :emails
@@ -13,7 +13,13 @@ class EmailAddressParser
     end
 
     def parse
-        @emails.split(" ",", ")
+        split_emails = []
+        split_emails = @emails.split(" ")
+        split_emails.each do |email|
+            email.delete!(",")
+        end
+        split_emails.uniq()
+        #@emails.split(/W+/)
     end
 
 end
